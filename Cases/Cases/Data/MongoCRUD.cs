@@ -21,5 +21,38 @@ namespace Cases.Data
             var client = new MongoClient(settings);
             _db = client.GetDatabase(databaseName);
         }
+
+        public void InsertRecord<T>(string table, T record)
+        {
+            var collection = _db.GetCollection<T>(table);
+            collection.InsertOne(record);
+        }
+
+        public T LoadFirstRecordByFilter<T>(string table, FilterDefinition<T> filter)
+        {
+            var collection = _db.GetCollection<T>(table);
+            return collection.Find(filter).First();
+        }
+
+        public List<T> LoadAllRecordsByFilter<T>(string table, FilterDefinition<T> filter)
+        {
+            var collection = _db.GetCollection<T>(table);
+            return collection.Find(filter).ToList();
+        }
+
+        public void UpsertRecordById<T>(string table, string id, T record)
+        {
+            var collection = _db.GetCollection<T>(table);
+            var result = collection.ReplaceOne(
+                new MongoDB.Bson.BsonDocument("_id", id),
+                record,
+                new ReplaceOptions { IsUpsert = true });
+        }
+
+        public void DeleteRecordByFilter<T>(string table, FilterDefinition<T> filter)
+        {
+            var collection = _db.GetCollection<T>(table);
+            collection.DeleteOne(filter);
+        }
     }
 }
