@@ -15,8 +15,8 @@
         )
         {
             Id = id ?? throw new ArgumentNullException(nameof(id));
-            UserId = userId;
-            VenueId = venueId;
+            UserId = userId ?? throw new ArgumentNullException(nameof(userId));
+            VenueId = venueId ?? throw new ArgumentNullException(nameof(venueId));
             VisitDate = visitDate;
         }
     }
