@@ -13,8 +13,8 @@
         public DateTime LastInfected { get; set; }
         public DateTime LastTested { get; set; }
         public DateTime LastContacted { get; set; }
-        public int AuthFailCount { get; set; }
-        public string AccountStatus { get; set; }
+        public int AuthFailCount { get; set; } = 0;
+        public string AccountStatus { get; set; } = "open";
 
         public User(string id, string firstName, int nhsNumber, string username, string password, string email, string telephone, string postcode, DateTime lastInfected, DateTime lastTested, DateTime lastContacted, int authFailCount, string accountStatus)
         {

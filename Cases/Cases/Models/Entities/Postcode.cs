@@ -6,14 +6,14 @@
         public string Area { get; set; }
         public int InfectionCount { get; set; }
         public int Population { get; set; }
-        public List<User> UsersInPostcode { get; set; }
+        public List<string> UsersInPostcode { get; set; }
 
         public Postcode(
             string id, 
             string area, 
             int infectionCount, 
             int population, 
-            List<User> usersInPostcode
+            List<string> usersInPostcode
         )
         {
             Id = id ?? throw new ArgumentNullException(nameof(id));
