@@ -1,8 +1,9 @@
-﻿using MongoDB.Driver;
+﻿using Cases.Interfaces;
+using MongoDB.Driver;
 
 namespace Cases.Data
 {
-    public class MongoCRUD
+    public class MongoCRUD : IMongoCRUD
     {
         IMongoDatabase _db;
 
