@@ -8,9 +8,9 @@
         public string Email { get; set; }
         public string Telephone { get; set; }
         public string Postcode { get; set; }
-        public DateTime LastInfected { get; set; }
-        public DateTime LastTested { get; set; }
-        public DateTime LastContacted { get; set; }
+        public DateTime? LastInfected { get; set; }
+        public DateTime? LastTested { get; set; }
+        public DateTime? LastContacted { get; set; }
         public int AuthFailCount { get; set; } = 0;
         public string AccountStatus { get; set; } = "open";
 
@@ -24,9 +24,9 @@
             string email, 
             string telephone, 
             string postcode,
-            DateTime lastInfected, 
-            DateTime lastTested,
-            DateTime lastContacted,
+            DateTime? lastInfected, 
+            DateTime? lastTested,
+            DateTime? lastContacted,
             int authFailCount,
             string accountStatus
         ) : base(id, username, password)
