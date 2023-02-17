@@ -31,7 +31,7 @@
             string accountStatus
         ) : base(id, username, password)
         {
-            Id = id ?? throw new ArgumentNullException(nameof(id));
+            Id = id;
             FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             LastName = lastName;
             NhsNumber = nhsNumber;

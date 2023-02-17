@@ -14,7 +14,7 @@
             DateTime visitDate
         )
         {
-            Id = id ?? throw new ArgumentNullException(nameof(id));
+            Id = id;
             UserId = userId ?? throw new ArgumentNullException(nameof(userId));
             VenueId = venueId ?? throw new ArgumentNullException(nameof(venueId));
             VisitDate = visitDate;

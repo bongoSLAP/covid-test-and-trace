@@ -16,7 +16,7 @@
             int checkInCode
         )
         {
-            Id = id ?? throw new ArgumentNullException(nameof(id));
+            Id = id;
             Name = name;
             Address = address;
             ClosingTime = closingTime;
