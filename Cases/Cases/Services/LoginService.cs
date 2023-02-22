@@ -49,7 +49,7 @@ namespace Cases.Services
         {
             ScryptEncoder encoder = new ScryptEncoder();
 
-            var filter = Builders<User>.Filter.Eq("_username", userLogin.Username.ToLower()); //make username creation toLower also
+            var filter = Builders<User>.Filter.Eq("Username", userLogin.Username.ToLower());
             var currentUser = _db.LoadFirstRecordByFilter<User>("users", filter);
 
             if (currentUser != null)

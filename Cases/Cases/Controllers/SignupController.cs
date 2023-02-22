@@ -26,7 +26,7 @@ namespace AssetBlox.Controllers
 
             try
             {
-                var filter = Builders<User>.Filter.Eq("_username", user.Username.ToLower()); //make username creation toLower also
+                var filter = Builders<User>.Filter.Eq("Username", user.Username.ToLower());
                 User? checkExists = _db.LoadFirstRecordByFilter<User>("users", filter);
 
                 if (checkExists != null)
@@ -42,7 +42,7 @@ namespace AssetBlox.Controllers
                     user.FirstName,
                     user.LastName,
                     user.NhsNumber,
-                    user.Username,
+                    user.Username.ToLower(),
                     hashedPassword,
                     user.Email,
                     user.Telephone,
