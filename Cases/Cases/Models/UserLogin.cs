@@ -8,7 +8,7 @@
 
         public UserLogin(string id, string username, string password)
         {
-            Id = id ?? throw new ArgumentNullException(nameof(id));
+            Id = id;
             Username = username ?? throw new ArgumentNullException(nameof(username));
             Password = password ?? throw new ArgumentNullException(nameof(password));
         }

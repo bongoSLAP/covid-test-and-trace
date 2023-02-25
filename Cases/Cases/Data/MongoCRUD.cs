@@ -1,8 +1,9 @@
-﻿using MongoDB.Driver;
+﻿using Cases.Interfaces;
+using MongoDB.Driver;
 
 namespace Cases.Data
 {
-    public class MongoCRUD
+    public class MongoCRUD : IMongoCRUD
     {
         IMongoDatabase _db;
 
@@ -31,7 +32,7 @@ namespace Cases.Data
         public T LoadFirstRecordByFilter<T>(string table, FilterDefinition<T> filter)
         {
             var collection = _db.GetCollection<T>(table);
-            return collection.Find(filter).First();
+            return collection.Find(filter).FirstOrDefault();
         }
 
         public List<T> LoadAllRecordsByFilter<T>(string table, FilterDefinition<T> filter)

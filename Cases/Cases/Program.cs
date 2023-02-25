@@ -1,4 +1,12 @@
+using Cases.Data;
+using Cases.Interfaces;
+using Cases.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddTransient<IMongoCRUD, MongoCRUD>();
+builder.Services.AddScoped<ILoginService, LoginService>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

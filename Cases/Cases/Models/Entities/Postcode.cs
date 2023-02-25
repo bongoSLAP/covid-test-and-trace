@@ -16,7 +16,7 @@
             List<string> usersInPostcode
         )
         {
-            Id = id ?? throw new ArgumentNullException(nameof(id));
+            Id = id;
             Area = area;
             InfectionCount = infectionCount;
             Population = population;
