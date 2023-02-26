@@ -46,5 +46,15 @@
             AuthFailCount = authFailCount;
             AccountStatus = accountStatus ?? throw new ArgumentNullException(nameof(accountStatus));
         }
+
+        public void UpdateLastInfection(DateTime dateInfected)
+        {
+            this.LastInfected = dateInfected;
+        }
+
+        public void UpdateLastTested(DateTime dateTested)
+        {
+            this.LastTested = dateTested;
+        }
     }
 }

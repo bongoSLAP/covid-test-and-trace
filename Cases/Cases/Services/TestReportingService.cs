@@ -1,0 +1,35 @@
+﻿using Cases.Interfaces;
+using Cases.Models;
+using Cases.Models.Entities;
+using MongoDB.Driver;
+
+namespace Cases.Services
+{
+    public class TestReportingService : ITestReportingService
+    {
+        private readonly IMongoCRUD _db;
+
+        public TestReportingService(IMongoCRUD db)
+        {
+            _db = db;
+        }
+
+        public void ReportResult(TestReport report, string username)
+        {
+            var filter = Builders<User>.Filter.Eq("Username", username);
+            var currentUser = _db.LoadFirstRecordByFilter("users", filter);
+
+            if (currentUser != null)
+            {
+                var dateTested = report.DateTested;
+
+                if (report.IsPositive)
+                    currentUser.UpdateLastInfection(dateTested);
+
+                currentUser.UpdateLastTested(dateTested);
+
+                _db.UpsertRecordById<User>("users", currentUser.Id, currentUser);
+            }
+        }
+    }
+}
