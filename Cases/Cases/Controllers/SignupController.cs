@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using Scrypt;
 
-namespace AssetBlox.Controllers
+namespace Cases.Controllers
 {
     public class SignupController : Controller
     {
@@ -20,8 +20,7 @@ namespace AssetBlox.Controllers
         {
             if (user == null)
                 return BadRequest("User is null");
-
-
+            
             ScryptEncoder encoder = new ScryptEncoder();
 
             try

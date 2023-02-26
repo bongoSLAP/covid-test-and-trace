@@ -3,7 +3,7 @@ using Cases.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AssetBlox.Controllers
+namespace Cases.Controllers
 {
     public class LoginController : Controller
     {
