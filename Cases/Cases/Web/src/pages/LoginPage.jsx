@@ -1,9 +1,9 @@
-
+import NavBar from "../scenes/NavBar";
 
 const LoginPage = () => {
     return(
         <div>
-            <div>s</div>
+            <NavBar />
             
         </div>
     )
