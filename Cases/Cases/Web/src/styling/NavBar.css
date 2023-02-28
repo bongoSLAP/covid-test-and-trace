@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color:#005EB8;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 0 2rem;
+}
+
+nav {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+img {
+    width: 180px;
+    height: 100px;
+}
+
+.link {
+    padding: 2px 20px 2px 20px;
+    color: azure;
+}
