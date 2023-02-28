@@ -2,13 +2,13 @@ header {
     background-color:#005EB8;
     display: flex;
     align-items: center;
-    height: 120px;
+    height: 100px;
     padding: 0 2rem;
 }
 
 img {
     width: 180px;
-    height: 120px;
+    height: 100px;
 }
 
 form {
@@ -47,4 +47,10 @@ h3 {
     background-color: #005EB8;
     color: white;
     text-decoration: underline;
+}
+
+.link {
+    padding: 50px 20px 2px 20px;
+    color: black;
+    
 }
