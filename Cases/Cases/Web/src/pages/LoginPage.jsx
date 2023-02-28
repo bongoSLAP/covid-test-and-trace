@@ -8,7 +8,7 @@ const LoginPage = () => {
     const {username, setUsername} = useState(false);
     const {password, setPassword} = useState(false);
 
-    function LoginForm(){
+    function LoginForm() {
         const { register, formState: {errors} } = useForm()
         let handleSubmit = async (e) =>{
             e.preventDefault();
@@ -48,7 +48,7 @@ const LoginPage = () => {
                 <div id='onSuccess'></div>
 
                 <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..." }} />
-                <Link className='link'>Sign up</Link>
+                <Link className='link' to={"/SignUp"}>Sign up</Link>
 
             </form>
         )
