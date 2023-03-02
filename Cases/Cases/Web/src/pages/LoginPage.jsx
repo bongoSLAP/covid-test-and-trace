@@ -1,12 +1,18 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/nhs-logo.jpeg'
 import '../styling/Login.css'
 
-const LoginPage = () => {
+const LoginPage = ({setIsLoggedIn}) => {
     const {username, setUsername} = useState(false);
     const {password, setPassword} = useState(false);
+    const navigate = useNavigate();
+    
+    function loginClick() {
+        setIsLoggedIn(true)
+        navigate("/Home")
+    }
 
     function LoginForm() {
         const { register, formState: {errors} } = useForm()
@@ -24,6 +30,8 @@ const LoginPage = () => {
                 if (res.status === 200) {
                     setUsername("");
                     setPassword("");
+                    setIsLoggedIn(true);
+                    navigate("/Home")
                 }
             } catch (err){
                 console.log(err);
@@ -47,23 +55,25 @@ const LoginPage = () => {
                 <br />
                 <div id='onSuccess'></div>
 
-                <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..." }} />
+                <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..."; loginClick(); }} />
                 <Link className='link' to={"/SignUp"}>Sign up</Link>
 
             </form>
         )
     }
+
+
     return(
         <div>
             <header>
                 <img src={logo} alt='logo' />
             </header>
-            <h2>Welcome to Cases - NHS Track & Trace</h2>
-            <h3>Please Login to continue</h3>
+            <h1>Welcome to Cases - NHS Track & Trace</h1>
+            <h2>Please Login to continue</h2>
             <LoginForm />
-
         </div>
     )
+
 }
 
 export default LoginPage;

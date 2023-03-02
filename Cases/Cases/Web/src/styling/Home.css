@@ -1,0 +1,61 @@
+.homePageContainer {
+    overflow-y: scroll;
+    margin-bottom: 100px;
+}
+
+.homePageContainer p {
+    font-size: 18px;
+}
+
+.bannerImg {
+    width: auto;
+    height: auto;
+}
+
+.homeH1 {
+    text-align: left;
+    padding-left: 5vw;
+    padding-top: 5vh;
+    font-size: 52px;
+}
+
+.homeH2 {
+    padding-top: 0;
+    padding-left: 5vw;
+    padding-bottom: 5vh;
+    text-align: left;
+    font-size: 38px;
+}
+
+.HowCanYouHelp {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    padding-right: 10vw;
+    max-width: 40vw;
+    margin-left: 60vw;
+    padding-top: 30px;
+}
+
+.HowCanYouHelp h3 {
+    font-size: 30px;
+}
+
+.HowAreWeTacklingCovid {
+    max-width: 40vw;
+    padding-top: 5vh;
+    padding-left: 10vw;
+}
+
+.HowAreWeTacklingCovid h3 {
+    font-size: 30px;
+}
+
+.VenueTrackingContainer {
+    padding-top: 20vh;
+    padding-left: 10vw;
+}
+
+.VenueTrackingContainer h3 {
+    font-size: 42px;
+}

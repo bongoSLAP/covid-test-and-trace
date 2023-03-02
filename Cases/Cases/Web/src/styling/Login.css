@@ -19,11 +19,12 @@ form {
     margin: 10vh 20vw;
 }
 
-h2 {
+h1 {
+    padding-top: 5%;
     text-align: center;
 }
 
-h3 {
+h2 {
     text-align: center;
 }
 

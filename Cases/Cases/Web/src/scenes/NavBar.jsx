@@ -6,10 +6,10 @@ const NavBar = () => {
         <header>
             <img src={logo} alt='logo' />
             <nav>
-                <Link className='link'>Home</Link>
-                <Link className='link'>Book Test</Link>
-                <Link className='link'>Symptom Survey</Link>
-                <Link className='link'>Sign out</Link>
+                <Link className='linkNav'>Home</Link>
+                <Link className='linkNav'>Book Test</Link>
+                <Link className='linkNav'>Symptom Survey</Link>
+                <Link className='linkNav'>Sign out</Link>
                 </nav>
         </header>
         
