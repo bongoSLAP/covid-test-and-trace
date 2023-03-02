@@ -38,7 +38,7 @@ const HomePage = ({isLoggedIn}) => {
             <div className='VenueTrackingContainer'>
                 <h3>Venue Tracking</h3>
                 <p>If you're visiting a venue or business not owned by your household, you will need to check-in upon entry</p>
-                <Link>Check-in here</Link>
+                <Link to='/CheckIn'>Check-in here</Link>
             </div>
         )
     }
