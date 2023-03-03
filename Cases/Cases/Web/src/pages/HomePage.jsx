@@ -43,11 +43,23 @@ const HomePage = ({isLoggedIn}) => {
         )
     }
 
+    function SelfIsolation(){
+
+        return(
+            <div className='VenueTrackingContainer'>
+                <h3>Self Isolation</h3>
+                <p>You must self isolate until ??? @ ???</p>
+                <Link to='/Countdown'>See more info</Link>
+            </div>
+        )
+    }
+
     return(
         <div className='homePageContainer'>
             <NavBar />
             <SubHeading />
             <VenueTracking />
+            <SelfIsolation />
         </div>
     )
 }
