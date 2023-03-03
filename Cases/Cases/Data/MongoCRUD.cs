@@ -28,6 +28,12 @@ namespace Cases.Data
             var collection = _db.GetCollection<T>(table);
             collection.InsertOne(record);
         }
+        
+        public void InsertRange<T>(string table, List<T> record)
+        {
+            var collection = _db.GetCollection<T>(table);
+            collection.InsertMany(record);
+        }
 
         public T LoadFirstRecordByFilter<T>(string table, FilterDefinition<T> filter)
         {
