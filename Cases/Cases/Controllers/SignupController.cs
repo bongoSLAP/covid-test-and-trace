@@ -1,4 +1,5 @@
-﻿using Cases.Interfaces;
+﻿using Cases.Helpers;
+using Cases.Interfaces;
 using Cases.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
@@ -62,5 +63,43 @@ namespace Cases.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        
+        /*
+        [HttpGet("PopulateUsers")]
+        public IActionResult Foo()
+        {
+            var dummy = new DummyDataHelper(_db);
+            var users = dummy.GetDummyUsers();
+            
+            ScryptEncoder encoder = new ScryptEncoder();
+            
+            foreach (User user in users)
+            {
+                string hashedPassword = encoder.Encode(user.Password);
+
+                Guid guid = Guid.NewGuid();
+                User newUser = new(
+                    guid.ToString(),
+                    user.FirstName,
+                    user.LastName,
+                    user.NhsNumber,
+                    user.Username.ToLower(),
+                    hashedPassword,
+                    user.Email,
+                    user.Telephone,
+                    user.Postcode,
+                    user.LastInfected,
+                    user.LastTested,
+                    user.LastContacted,
+                    0,
+                    "open"
+                );
+                
+                _db.InsertRecord("users", newUser);
+            }
+
+            return Ok();
+        }
+        */
     }
 }
