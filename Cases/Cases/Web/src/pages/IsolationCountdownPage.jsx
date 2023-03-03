@@ -9,7 +9,6 @@ function calculateDeadlineDate() {
   let Deadline = new Date(time * 1000);
   Result = Deadline.toLocaleDateString();
   
-  return [Deadline];
 }
 
 

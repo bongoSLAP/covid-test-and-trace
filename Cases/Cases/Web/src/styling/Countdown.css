@@ -1,0 +1,16 @@
+.show-counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*font-size: 100px;*/
+}
+.show-counter p {
+    padding-right: 2px;
+}
+.show-counter h1 {
+    padding-top: 0;
+    font-size: 52px;
+}
+.show-counter span {
+    font-size: 40px;
+}
