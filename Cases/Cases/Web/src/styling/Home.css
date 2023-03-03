@@ -8,7 +8,7 @@
 }
 
 .bannerImg {
-    width: auto;
+    width: 100%;
     height: auto;
 }
 
@@ -27,14 +27,13 @@
     font-size: 38px;
 }
 
-.HowCanYouHelp {
-    align-items: start;
+.homeInfoContainer {
+    padding-top: 50px;
     display: flex;
-    flex-direction: column;
-    padding-right: 10vw;
-    max-width: 40vw;
-    margin-left: 60vw;
-    padding-top: 30px;
+}
+
+.HowCanYouHelp {
+    max-width: 35vw;
 }
 
 .HowCanYouHelp h3 {
@@ -42,9 +41,8 @@
 }
 
 .HowAreWeTacklingCovid {
-    max-width: 40vw;
-    padding-top: 5vh;
-    padding-left: 10vw;
+    max-width: 35vw;
+    margin: 0 10vw;
 }
 
 .HowAreWeTacklingCovid h3 {

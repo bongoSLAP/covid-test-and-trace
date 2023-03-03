@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../scenes/NavBar'
 
 const VenueCheckIn = () => {
@@ -16,7 +15,6 @@ const VenueCheckIn = () => {
                         venueID: venueID
                     }),
                 });
-                let resJson = await res.json();
                 if (res.status === 200) {
                   setVenueID("");
                 }
@@ -45,8 +43,7 @@ const VenueCheckIn = () => {
     <div>
       <NavBar />
       <h1>Venue Tracker</h1> 
-      <br /> 
-      <br />
+      
       <h2>Enter the venue ID displayed at the entrance</h2>
       <CheckInForm />
     </div>);

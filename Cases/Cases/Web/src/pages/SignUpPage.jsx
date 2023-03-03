@@ -37,7 +37,6 @@ const SignUpPage = () => {
                         AccountStatus: "open"
                     }),
                 });
-                let resJson = await res.json();
                 if (res.status === 200) {
                     setFirstname("");
                     setLastname("");
