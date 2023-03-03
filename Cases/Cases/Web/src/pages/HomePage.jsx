@@ -41,7 +41,18 @@ const HomePage = ({isLoggedIn}) => {
             <div className='VenueTrackingContainer'>
                 <h3>Venue Tracking</h3>
                 <p>If you're visiting a venue or business not owned by your household, you will need to check-in upon entry</p>
-                <Link>Check-in here</Link>
+                <Link to='/CheckIn'>Check-in here</Link>
+            </div>
+        )
+    }
+
+    function SelfIsolation(){
+
+        return(
+            <div className='VenueTrackingContainer'>
+                <h3>Self Isolation</h3>
+                <p>You must self isolate until ??? @ ???</p>
+                <Link to='/Countdown'>See more info</Link>
             </div>
         )
     }
@@ -51,6 +62,7 @@ const HomePage = ({isLoggedIn}) => {
             <NavBar />
             <SubHeading />
             <VenueTracking />
+            <SelfIsolation />
         </div>
     )
 }

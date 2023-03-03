@@ -46,7 +46,8 @@ const VenueCheckIn = () => {
       
       <h2>Enter the venue ID displayed at the entrance</h2>
       <CheckInForm />
-    </div>);
+    </div>
+  );
 }
 
 export default VenueCheckIn;
