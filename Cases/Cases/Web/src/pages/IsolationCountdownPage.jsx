@@ -1,8 +1,5 @@
-import { useState, useEffect, useRef  } from 'react'
-import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../scenes/NavBar'
-import ExampleCounter from '../countdownTimer.js'
+import  CountdownTimer from '../hooks/countdownTimer.js'
 
 var Result = 0;
 
@@ -12,6 +9,7 @@ function calculateDeadlineDate() {
   let Deadline = new Date(time * 1000);
   Result = Deadline.toLocaleDateString();
   
+  return [Deadline];
 }
 
 
@@ -24,27 +22,10 @@ const IsolationCountdown = () => {
       </div>
     );
   }
-  
 
   
-  /*const CountdownTimer = () =>{
-      var now = new Date().getTime();
-      var timeleft = time - now;
-  
-      var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-      
-      return(
-        <div>
-          <h3>{days} {hours} {minutes} {seconds}</h3>
-        </div>
-      );
-  }*/
+  const deadlineDate = new Date (time * 1000);
 
-  
-  
   return (
     <div>
       <NavBar />
@@ -54,7 +35,7 @@ const IsolationCountdown = () => {
       <IsolationDate />
       <br /> 
       <br />
-      <ExampleCounter />
+      <CountdownTimer targetDate={deadlineDate}/>
     </div>
   );
 }
