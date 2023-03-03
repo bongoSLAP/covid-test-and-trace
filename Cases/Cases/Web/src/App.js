@@ -5,6 +5,7 @@ import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
 import VenueCheckIn from './pages/VenueCheckInPage';
 import IsolationCountdown from './pages/IsolationCountdownPage';
+import TestBooking from './pages/TestBookingPage';
 import './styling/App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Route path='/Home' element={<HomePage isLoggedIn={isLoggedIn}/>} />
     <Route path='/CheckIn' element={<VenueCheckIn />} />
     <Route path='/Countdown' element={<IsolationCountdown />} />
+    <Route path='/BookTest' element={<TestBooking />} />
   </Routes>
 }
 

@@ -7,7 +7,7 @@ const NavBar = () => {
             <img src={logo} alt='logo' />
             <nav>
                 <Link className='linkNav' to='/Home'>Home</Link>
-                <Link className='linkNav'>Book Test</Link>
+                <Link className='linkNav' to='/BookTest'>Book Test</Link>
                 <Link className='linkNav'>Symptom Survey</Link>
                 <Link className='linkNav'>Sign out</Link>
                 </nav>
