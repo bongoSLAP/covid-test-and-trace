@@ -26,7 +26,6 @@ const LoginPage = ({setIsLoggedIn}) => {
                         password: password
                     }),
                 });
-                let resJson = await res.json();
                 if (res.status === 200) {
                     setUsername("");
                     setPassword("");
