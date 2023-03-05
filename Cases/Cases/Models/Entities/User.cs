@@ -4,7 +4,7 @@
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int NhsNumber { get; set; }
+        public string NhsNumber { get; set; }
         public string Email { get; set; }
         public string Telephone { get; set; }
         public string Postcode { get; set; }
@@ -18,7 +18,7 @@
             string id, 
             string firstName, 
             string lastName, 
-            int nhsNumber, 
+            string nhsNumber, 
             string username, 
             string password, 
             string email, 
