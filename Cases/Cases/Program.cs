@@ -7,11 +7,22 @@ using System.Text;
 using Cases.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
+var _policyName = "CorsPolicy";
 
 builder.Services.AddTransient<IMongoCRUD, MongoCRUD>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ITestReportingService, TestReportingService>();
 builder.Services.AddScoped<IUserHelper, UserHelper>();
+
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name: _policyName, policyBuilder =>
+    {
+        policyBuilder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 builder.Services.AddControllers();
 
