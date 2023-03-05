@@ -15,11 +15,13 @@ namespace Cases.Services
     {
         private readonly IMongoCRUD _db;
         private readonly IConfiguration _config;
+        private readonly IUserHelper _userHelper;
 
-        public LoginService(IMongoCRUD db, IConfiguration config)
+        public LoginService(IMongoCRUD db, IConfiguration config, IUserHelper userHelper)
         {
             _db = db;
             _config = config;
+            _userHelper = userHelper;
         }
 
         public string Generate(User user)
@@ -48,9 +50,7 @@ namespace Cases.Services
         public User? Authenticate(UserLogin userLogin)
         {
             ScryptEncoder encoder = new ScryptEncoder();
-
-            var filter = Builders<User>.Filter.Eq("Username", userLogin.Username.ToLower());
-            var currentUser = _db.LoadFirstRecordByFilter<User>("users", filter);
+            var currentUser = _userHelper.GetUserByUsername(userLogin.Username);
 
             if (currentUser != null)
             {

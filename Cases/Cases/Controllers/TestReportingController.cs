@@ -8,10 +8,13 @@ namespace Cases.Controllers
 {
     public class TestReportingController : Controller
     {
-        ITestReportingService _testReportingService;
-        public TestReportingController(ITestReportingService testReportingService)
+        private readonly ITestReportingService _testReportingService;
+        private readonly IUserHelper _userHelper;
+        
+        public TestReportingController(ITestReportingService testReportingService, IUserHelper userHelper)
         {
             _testReportingService = testReportingService;
+            _userHelper = userHelper;
         }
 
         [Authorize]
@@ -21,8 +24,7 @@ namespace Cases.Controllers
             if (report == null)
                 return BadRequest("Report is null");
 
-            var currentUser = HttpContext.User;
-            var usernameClaim = currentUser.FindFirst(ClaimTypes.NameIdentifier);
+            var usernameClaim = _userHelper.GetUsernameClaim(HttpContext.User);
 
             if (usernameClaim == null)
                 return BadRequest("Cannot identify requester");
