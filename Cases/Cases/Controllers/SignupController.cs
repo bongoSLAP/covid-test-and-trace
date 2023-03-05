@@ -24,15 +24,12 @@ namespace Cases.Controllers
             if (user == null)
                 return BadRequest("User is null");
             
-            ScryptEncoder encoder = new ScryptEncoder();
+            if (_userHelper.GetUserByUsername(user.Username) != null)
+                return BadRequest("User already exists");
 
             try
             {
-                if (_userHelper.GetUserByUsername(user.Username) != null)
-                {
-                    return BadRequest("User already exists");
-                }
-
+                ScryptEncoder encoder = new ScryptEncoder();
                 string hashedPassword = encoder.Encode(user.Password);
 
                 Guid guid = Guid.NewGuid();
