@@ -7,7 +7,7 @@ import NavBar from '../scenes/NavBar'
 import 'react-calendar/dist/Calendar.css';
 
 
-const TestBooking = () => {
+const TestBooking = ({username}) => {
     
     const [date, onChange] = useState(new Date()); //Calendar Date
     const [time, onChangeTime] = useState('10:00'); //Booking Time
@@ -39,7 +39,8 @@ const TestBooking = () => {
                     body: JSON.stringify({
                         date: date,
                         time: time,
-                        location: location
+                        location: location,
+                        username: username
                     }),
                 });
                 if (res.status === 200) {

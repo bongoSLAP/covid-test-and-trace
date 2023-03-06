@@ -4,8 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/nhs-logo.jpeg'
 import '../styling/Login.css'
 
-const LoginPage = ({setIsLoggedIn}) => {
-    const {username, setUsername} = useState(false);
+const LoginPage = ({setIsLoggedIn, setUsername, username}) => { 
     const {password, setPassword} = useState(false);
     const navigate = useNavigate();
     
@@ -27,7 +26,6 @@ const LoginPage = ({setIsLoggedIn}) => {
                     }),
                 });
                 if (res.status === 200) {
-                    setUsername("");
                     setPassword("");
                     setIsLoggedIn(true);
                     navigate("/Home")
