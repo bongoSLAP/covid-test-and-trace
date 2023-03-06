@@ -57,19 +57,33 @@ const TestBooking = ({username}) => {
                 <h3>Select Your Location</h3>
                 <fieldset>
                     <legend>Select a Location</legend>
-                    <br />
-                    <input onChange={() =>{handleChange(); setLocation("London")}} id='London' type='radio' name='Location' {...register('London')} />
-                    {errors.London && <p>Please select your location</p>}
-                    <label htmlFor='London'>London</label>
-                    <br />
-                    <br />
-                    
-                    <br />
-                    <input onChange={() => {handleChange(); setLocation("Manchester")}} id='Manchester' type='radio' name='Location'  {...register('Manchester')} />
-                    {errors.Manchester && <p>Please select your location</p>}
-                    <label htmlFor='Manchester'>Manchester</label>
-                    <br />
-                    <br />
+                    <div>
+                        <br />
+                        <input 
+                            type='radio' 
+                            id="London" 
+                            name="location" 
+                            value="London"
+                            checked={formData.location === "London"} 
+                            onChange={handleChange}
+                            />
+                        <label for='London'>London</label>
+                        <br />
+                        <br />
+                        
+                        <br />
+                        <input 
+                            type='radio' 
+                            id="Manchester" 
+                            name="location" 
+                            value="Manchester"
+                            checked={formData.location === "Manchester"} 
+                            onChange={handleChange}
+                        />
+                        <label for="Manchester">Manchester</label>
+                        <br />
+                        <br />
+                    </div>
                 </fieldset>
 
                 <Calendar onChange={onChange} value={date}/>
@@ -83,8 +97,8 @@ const TestBooking = ({username}) => {
         )
     }
 
-    console.log({date});
-    console.log({time});
+    //setFormData({date}, {time}, formData.location);
+    console.log(formData);
     
     return (
         <div>
