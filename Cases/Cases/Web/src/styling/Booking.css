@@ -1,0 +1,20 @@
+.bookingFormTitle {
+    padding-bottom: 5%;
+    font-size: 36px;
+}
+
+.bookingTitle {
+    font-size: 52px;
+    margin-bottom: 5%;
+}
+
+.bookingForm {
+    margin: 0;
+}
+
+fieldset {
+    width: 350px;
+    display: flex;
+    justify-content: center;
+}
+

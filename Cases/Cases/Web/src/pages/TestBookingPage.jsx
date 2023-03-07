@@ -1,21 +1,19 @@
 import { useState } from 'react';
 import { Calendar } from 'react-calendar';
 import TimePicker from 'react-time-picker';
-import { set, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import NavBar from '../scenes/NavBar'
 import 'react-calendar/dist/Calendar.css';
+import '../styling/Booking.css';
 
 
 const TestBooking = ({username}) => {
     
     const [date, onChange] = useState(new Date()); //Calendar Date
     const [time, onChangeTime] = useState('10:00'); //Booking Time
-    const [location, setLocation] = useState(false); //Location selector
     const [formData, setFormData] = useState( //Radio Button
         {
-            date: "", 
-            time: "", 
             location: ""
         }
     )
@@ -30,7 +28,7 @@ const TestBooking = ({username}) => {
         })
     }
 
-    const { register, formState: {errors} } = useForm() //HTTP Request
+    const {} = useForm() //HTTP Request
         let handleSubmit = async (e) =>{
             e.preventDefault();
             try {
@@ -39,7 +37,7 @@ const TestBooking = ({username}) => {
                     body: JSON.stringify({
                         date: date,
                         time: time,
-                        location: location,
+                        location: formData.location,
                         username: username
                     }),
                 });
@@ -53,28 +51,42 @@ const TestBooking = ({username}) => {
 
     function BookTest () {
         return (
-            <form onSubmit={handleSubmit}>
-                <h3>Select Your Location</h3>
+            <form onSubmit={handleSubmit} className='bookingForm'>
+                <h3 className='bookingFormTitle'>Select Your Location</h3>
                 <fieldset>
-                    <legend>Select a Location</legend>
-                    <br />
-                    <input onChange={() =>{handleChange(); setLocation("London")}} id='London' type='radio' name='Location' {...register('London')} />
-                    {errors.London && <p>Please select your location</p>}
-                    <label htmlFor='London'>London</label>
-                    <br />
-                    <br />
-                    
-                    <br />
-                    <input onChange={() => {handleChange(); setLocation("Manchester")}} id='Manchester' type='radio' name='Location'  {...register('Manchester')} />
-                    {errors.Manchester && <p>Please select your location</p>}
-                    <label htmlFor='Manchester'>Manchester</label>
-                    <br />
-                    <br />
+                    <div className='radioDiv'>
+                        <br />
+                        <input 
+                            type='radio' 
+                            id="London" 
+                            name="location" 
+                            value="London"
+                            checked={formData.location === "London"} 
+                            onChange={handleChange}
+                            />
+                        <label htmlfor='London'>London</label>
+                        <br />
+                        <br />
+                        
+                        <br />
+                        <input 
+                            type='radio' 
+                            id="Manchester" 
+                            name="location" 
+                            value="Manchester"
+                            checked={formData.location === "Manchester"} 
+                            onChange={handleChange}
+                        />
+                        <label htmlfor="Manchester">Manchester</label>
+                        <br />
+                        <br />
+                    </div>
                 </fieldset>
 
                 <Calendar onChange={onChange} value={date}/>
                 <TimePicker onChange={onChangeTime} value={time} disableClock='true' minTime={'09:00'} maxTime={'20:00'}/>
 
+                <br />
                 <input className='inputLogin' type='submit' value={"Book Test"}  />
                 <br />
                 <Link className='link' to={"/Home"}>Cancel</Link>
@@ -82,13 +94,11 @@ const TestBooking = ({username}) => {
             </form>
         )
     }
-
-    console.log({date});
-    console.log({time});
     
     return (
         <div>
             <NavBar />
+            <h1 className='bookingTitle'>Book a Covid Test</h1>
             <BookTest />
         </div>
     )
