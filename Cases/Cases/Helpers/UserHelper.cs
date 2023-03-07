@@ -13,6 +13,11 @@ public class UserHelper : IUserHelper
     {
         _db = db;
     }
+    
+    public Claim? GetUsernameClaim(ClaimsPrincipal user)
+    {
+        return user.FindFirst(ClaimTypes.NameIdentifier);
+    }
 
     public User? GetUserByUsername(string username)
     {
@@ -20,8 +25,9 @@ public class UserHelper : IUserHelper
         return _db.LoadFirstRecordByFilter<User>("users", filter);
     }
 
-    public Claim? GetUsernameClaim(ClaimsPrincipal user)
+    public User? GetUserByClaim(ClaimsPrincipal user)
     {
-        return user.FindFirst(ClaimTypes.NameIdentifier);
+        var usernameClaim = GetUsernameClaim(user);
+        return GetUserByUsername(usernameClaim.Value);
     }
 }
