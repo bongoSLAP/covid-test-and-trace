@@ -46,6 +46,12 @@ namespace Cases.Data
             var collection = _db.GetCollection<T>(table);
             return collection.Find(filter).ToList();
         }
+        
+        public List<T> LoadAllRecords<T>(string table)
+        {
+            var collection = _db.GetCollection<T>(table);
+            return collection.Find(FilterDefinition<T>.Empty).ToList();
+        }
 
         public void UpsertRecordById<T>(string table, string id, T record)
         {
