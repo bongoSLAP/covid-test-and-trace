@@ -1,5 +1,7 @@
+using Cases.Helpers;
 using Cases.Interfaces;
 using Cases.Models;
+using Cases.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,11 +11,13 @@ public class VenueController : Controller
 {
     private readonly IVenueService _venueService;
     private readonly IUserHelper _userHelper;
+    private readonly IMongoCRUD _db;
     
-    public VenueController(IUserHelper userHelper, IVenueService venueService)
+    public VenueController(IUserHelper userHelper, IVenueService venueService, IMongoCRUD db)
     {
         _userHelper = userHelper;
         _venueService = venueService;
+        _db = db;
     }
     
     [Authorize]
@@ -56,4 +60,16 @@ public class VenueController : Controller
             return BadRequest(ex.Message);
         }
     }
+
+    /*
+    [HttpGet("Venue/PopulateUsers")]
+    public IActionResult Foo()
+    {
+        var dummy = new DummyDataHelper(_db);
+        var venues = dummy.GetDummyVenues();
+
+        _db.InsertRange<Venue>("venues", venues);
+        return Ok();
+    }
+    */
 }

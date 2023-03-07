@@ -1,8 +1,6 @@
-﻿using Cases.Helpers;
-using Cases.Interfaces;
+﻿using Cases.Interfaces;
 using Cases.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
 using Scrypt;
 
 namespace Cases.Controllers
@@ -61,7 +59,7 @@ namespace Cases.Controllers
         }
         
         /*
-        [HttpGet("PopulateUsers")]
+        [HttpGet("/User/PopulateUsers")]
         public IActionResult Foo()
         {
             var dummy = new DummyDataHelper(_db);
