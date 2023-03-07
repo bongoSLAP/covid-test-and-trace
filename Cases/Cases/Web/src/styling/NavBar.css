@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-header {
+.header {
     background-color:#005EB8;
     display: flex;
     align-items: center;
@@ -29,4 +29,15 @@ img {
 .linkNav {
     padding: 2px 20px 2px 20px;
     color: azure;
+}
+
+.alert {
+    text-align: center;
+    width: 100%;
+    height: 5vh;
+    background-color: #FFEB3B;
+}
+
+nav button {
+    background-color: #005EB8;
 }
