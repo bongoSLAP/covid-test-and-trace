@@ -12,6 +12,7 @@ var _policyName = "CorsPolicy";
 builder.Services.AddTransient<IMongoCRUD, MongoCRUD>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ITestReportingService, TestReportingService>();
+builder.Services.AddScoped<IVenueService, VenueService>();
 builder.Services.AddScoped<IUserHelper, UserHelper>();
 
 builder.Services.AddCors(opt =>
