@@ -4,8 +4,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/nhs-logo.jpeg'
 import '../styling/Login.css'
 
-const LoginPage = ({setIsLoggedIn, setUsername, username}) => { 
+const LoginPage = ({ setIsLoggedIn }) => { 
     const {password, setPassword} = useState(false);
+    const [username, setUsername] = useState(false);
     const navigate = useNavigate();
     
     function loginClick() {
@@ -17,14 +18,20 @@ const LoginPage = ({setIsLoggedIn, setUsername, username}) => {
         const { register, formState: {errors} } = useForm()
         let handleSubmit = async (e) =>{
             e.preventDefault();
+
+            console.log('username: ' + username + "\npassword: " + password);
             try {
                 let res = await fetch("https://localhost:7166/Login", {
                     method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
                     body: JSON.stringify({
                         username: username,
                         password: password
                     }),
                 });
+                
                 if (res.status === 200) {
                     setPassword("");
                     setIsLoggedIn(true);
@@ -52,7 +59,7 @@ const LoginPage = ({setIsLoggedIn, setUsername, username}) => {
                 <br />
                 <div id='onSuccess'></div>
 
-                <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..."; loginClick(); }} />
+                <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..."; }} />
                 <Link className='link' to={"/SignUp"}>Sign up</Link>
 
             </form>
