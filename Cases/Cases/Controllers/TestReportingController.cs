@@ -19,7 +19,7 @@ namespace Cases.Controllers
 
         [Authorize]
         [HttpPost("Report")]
-        public IActionResult Report([FromBody] TestReport report)
+        public IActionResult Report(TestReport report)
         {
             if (report == null)
                 return BadRequest("Report is null");
