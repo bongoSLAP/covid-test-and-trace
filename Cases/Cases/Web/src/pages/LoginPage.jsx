@@ -5,8 +5,6 @@ import logo from '../assets/nhs-logo.jpeg'
 import '../styling/Login.css'
 
 const LoginPage = ({ setIsLoggedIn }) => { 
-    const {password, setPassword} = useState(false);
-    const [username, setUsername] = useState(false);
     const navigate = useNavigate();
     
     function loginClick() {
@@ -18,6 +16,9 @@ const LoginPage = ({ setIsLoggedIn }) => {
         const { register, formState: {errors} } = useForm()
         let handleSubmit = async (e) =>{
             e.preventDefault();
+
+            const username = e.target.Username.value;
+            const password = e.target.Password.value;
 
             console.log('username: ' + username + "\npassword: " + password);
             try {
@@ -33,7 +34,6 @@ const LoginPage = ({ setIsLoggedIn }) => {
                 });
                 
                 if (res.status === 200) {
-                    setPassword("");
                     setIsLoggedIn(true);
                     navigate("/Home")
                 }
@@ -43,17 +43,17 @@ const LoginPage = ({ setIsLoggedIn }) => {
         }
 
         return (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <label>Enter username</label>
                 <br />
-                <input onChange={(e) => setUsername(e.target.value)} className='inputText' id='Username' type='text' placeholder='Please enter username' {...register('Username', {required: true})} />
+                <input className='inputText' id='Username' type='text' placeholder='Please enter username' {...register('Username', {required: true})} />
                 {errors.Username && <p>Username is incorrect</p>}
                 <br />
                 <br />
 
                 <label>Enter password</label>
                 <br />
-                <input onChange={(e) => setPassword(e.target.value)} className='inputText' id='Password' type='password' placeholder='Pleaser enter password' {...register('Password', {required: true})} />
+                <input className='inputText' id='Password' type='password' placeholder='Pleaser enter password' {...register('Password', {required: true})} />
                 {errors.Password && <p>Password is incorrect</p>}
                 <br />
                 <br />
