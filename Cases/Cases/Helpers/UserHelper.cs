@@ -21,7 +21,7 @@ public class UserHelper : IUserHelper
 
     public async Task<User> GetUserByUsername(string username)
     {
-        var filter = Builders<User>.Filter.Eq("Username", username.ToLower());
+        var filter = Builders<User>.Filter.Eq(u => u.Username, username.ToLower());
         return await _db.LoadFirstRecordByFilter<User>("users", filter);
     }
 

@@ -18,8 +18,8 @@ public class VenueService : IVenueService
 
     public async Task<Venue> GetVenueByName(string name)
     {
-        var filter = Builders<Venue>.Filter.Eq("Name", name);
-        return await _db.LoadFirstRecordByFilter<Venue>("venues", filter);
+        var filter = Builders<Venue>.Filter.Eq(v => v.Name, name);
+        return await _db.LoadFirstRecordByFilter<Venue>("venues", filter) ?? null;
     }
 
     public async Task<List<Venue>> ListVenues()
@@ -30,12 +30,12 @@ public class VenueService : IVenueService
     public async Task<List<VenueHistory>> ListVenueHistory(string userId)
     {
         List<VenueHistory> venues = new List<VenueHistory>();
-        var userIdFilter = Builders<VenueVisit>.Filter.Eq("UserId", userId);
+        var userIdFilter = Builders<VenueVisit>.Filter.Eq(vv => vv.UserId, userId);
         var venueVisits = await _db.LoadAllRecordsByFilter<VenueVisit>("venue-visits", userIdFilter);
 
         foreach (VenueVisit venueVisit in venueVisits)
         {
-            var venueIdFilter = Builders<Venue>.Filter.Eq("_id", venueVisit.VenueId);
+            var venueIdFilter = Builders<Venue>.Filter.Eq(v => v.Id, venueVisit.VenueId);
             var venue = await _db.LoadFirstRecordByFilter<Venue>("venues", venueIdFilter);
             var venueHistory = new VenueHistory(
                 venue,
