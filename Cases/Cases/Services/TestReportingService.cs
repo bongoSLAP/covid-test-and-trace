@@ -14,10 +14,10 @@ namespace Cases.Services
             _db = db;
         }
 
-        public void ReportResult(TestReport report, string username)
+        public async void ReportResult(TestReport report, string username)
         {
             var filter = Builders<User>.Filter.Eq("Username", username);
-            var currentUser = _db.LoadFirstRecordByFilter("users", filter);
+            var currentUser = await _db.LoadFirstRecordByFilter("users", filter);
 
             if (currentUser != null)
             {

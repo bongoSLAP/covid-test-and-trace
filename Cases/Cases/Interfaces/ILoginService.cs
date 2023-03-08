@@ -6,6 +6,6 @@ namespace Cases.Interfaces
     public interface ILoginService
     {
         public string Generate(User user);
-        public User? Authenticate(UserLogin userLogin);
+        public Task<User> Authenticate(UserLogin userLogin);
     }
 }

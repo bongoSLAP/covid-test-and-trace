@@ -16,11 +16,11 @@ namespace Cases.Controllers
 
         [AllowAnonymous]
         [HttpPost("Login")]
-        public IActionResult Login([FromBody] UserLogin userLogin)
+        public async Task<IActionResult> Login([FromBody] UserLogin userLogin)
         {
             try
             {
-                var user = _loginService.Authenticate(userLogin);
+                var user = await _loginService.Authenticate(userLogin);
                 if (user != null)
                 {
                     var token = _loginService.Generate(user);

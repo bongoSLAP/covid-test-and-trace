@@ -6,6 +6,6 @@ namespace Cases.Interfaces;
 public interface IUserHelper
 {
     public Claim? GetUsernameClaim(ClaimsPrincipal user);
-    public User? GetUserByUsername(string username);
-    public User? GetUserByClaim(ClaimsPrincipal user);
+    public Task<User> GetUserByUsername(string username);
+    public Task<User> GetUserByClaim(ClaimsPrincipal user);
 }

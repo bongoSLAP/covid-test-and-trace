@@ -47,10 +47,10 @@ namespace Cases.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public User? Authenticate(UserLogin userLogin)
+        public async Task<User>? Authenticate(UserLogin userLogin)
         {
             ScryptEncoder encoder = new ScryptEncoder();
-            var currentUser = _userHelper.GetUserByUsername(userLogin.Username);
+            var currentUser = await _userHelper.GetUserByUsername(userLogin.Username);
 
             if (currentUser != null)
             {

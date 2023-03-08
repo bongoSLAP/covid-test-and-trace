@@ -46,13 +46,14 @@ public class VenueController : Controller
 
     [Authorize]
     [HttpGet("Venue/ViewHistory")]
-    public IActionResult ViewHistory()
+    public async Task<IActionResult> ViewHistory()
     {
-        var user = _userHelper.GetUserByClaim(HttpContext.User);
+        var user = await _userHelper.GetUserByClaim(HttpContext.User);
         
         try
         {
-            var venues = _venueService.ListVenueHistory(user.Id);
+            var venues = await _venueService.ListVenueHistory(user.Id);
+            
             return Ok(venues);
         }
         catch (Exception ex)

@@ -19,15 +19,15 @@ public class UserHelper : IUserHelper
         return user.FindFirst(ClaimTypes.NameIdentifier);
     }
 
-    public User? GetUserByUsername(string username)
+    public async Task<User> GetUserByUsername(string username)
     {
         var filter = Builders<User>.Filter.Eq("Username", username.ToLower());
-        return _db.LoadFirstRecordByFilter<User>("users", filter);
+        return await _db.LoadFirstRecordByFilter<User>("users", filter);
     }
 
-    public User? GetUserByClaim(ClaimsPrincipal user)
+    public async Task<User> GetUserByClaim(ClaimsPrincipal user)
     {
         var usernameClaim = GetUsernameClaim(user);
-        return GetUserByUsername(usernameClaim.Value);
+        return await GetUserByUsername(usernameClaim.Value);
     }
 }
