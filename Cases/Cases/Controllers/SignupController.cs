@@ -1,8 +1,6 @@
-﻿using Cases.Helpers;
-using Cases.Interfaces;
+﻿using Cases.Interfaces;
 using Cases.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
 using Scrypt;
 
 namespace Cases.Controllers
@@ -10,10 +8,12 @@ namespace Cases.Controllers
     public class SignupController : Controller
     {
         private readonly IMongoCRUD _db;
+        private readonly IUserHelper _userHelper;
 
-        public SignupController(IMongoCRUD db)
+        public SignupController(IMongoCRUD db, IUserHelper userHelper)
         {
             _db = db;
+            _userHelper = userHelper;
         }
 
         [HttpPost("Signup")]
@@ -22,18 +22,12 @@ namespace Cases.Controllers
             if (user == null)
                 return BadRequest("User is null");
             
-            ScryptEncoder encoder = new ScryptEncoder();
+            if (_userHelper.GetUserByUsername(user.Username) != null)
+                return BadRequest("User already exists");
 
             try
             {
-                var filter = Builders<User>.Filter.Eq("Username", user.Username.ToLower());
-                User? checkExists = _db.LoadFirstRecordByFilter<User>("users", filter);
-
-                if (checkExists != null)
-                {
-                    return BadRequest("User already exists");
-                }
-
+                ScryptEncoder encoder = new ScryptEncoder();
                 string hashedPassword = encoder.Encode(user.Password);
 
                 Guid guid = Guid.NewGuid();
@@ -65,7 +59,7 @@ namespace Cases.Controllers
         }
         
         /*
-        [HttpGet("PopulateUsers")]
+        [HttpGet("/User/PopulateUsers")]
         public IActionResult Foo()
         {
             var dummy = new DummyDataHelper(_db);

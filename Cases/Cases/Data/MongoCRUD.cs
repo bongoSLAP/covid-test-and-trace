@@ -35,16 +35,22 @@ namespace Cases.Data
             collection.InsertMany(record);
         }
 
-        public T LoadFirstRecordByFilter<T>(string table, FilterDefinition<T> filter)
+        public Task<T>? LoadFirstRecordByFilter<T>(string table, FilterDefinition<T> filter)
         {
             var collection = _db.GetCollection<T>(table);
-            return collection.Find(filter).FirstOrDefault();
+            return collection.Find(filter).FirstOrDefaultAsync() ?? null;
         }
 
-        public List<T> LoadAllRecordsByFilter<T>(string table, FilterDefinition<T> filter)
+        public Task<List<T>>? LoadAllRecordsByFilter<T>(string table, FilterDefinition<T> filter)
         {
             var collection = _db.GetCollection<T>(table);
-            return collection.Find(filter).ToList();
+            return collection.Find(filter).ToListAsync() ?? null;
+        }
+        
+        public Task<List<T>>? LoadAllRecords<T>(string table)
+        {
+            var collection = _db.GetCollection<T>(table);
+            return collection.Find(FilterDefinition<T>.Empty).ToListAsync() ?? null;
         }
 
         public void UpsertRecordById<T>(string table, string id, T record)

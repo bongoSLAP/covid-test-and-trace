@@ -18,4 +18,10 @@ public class DummyDataHelper
         string json = File.ReadAllText(".\\Dummy\\User.json");
         return JsonConvert.DeserializeObject<List<User>>(json);
     }
+    
+    public List<Venue> GetDummyVenues()
+    {
+        string json = File.ReadAllText(".\\Dummy\\Venue.json");
+        return JsonConvert.DeserializeObject<List<Venue>>(json);
+    }
 }
