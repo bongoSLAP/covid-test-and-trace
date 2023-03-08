@@ -1,9 +1,7 @@
-﻿using Cases.Data;
-using Cases.Interfaces;
+﻿using Cases.Interfaces;
 using Cases.Models;
 using Cases.Models.Entities;
 using Microsoft.IdentityModel.Tokens;
-using MongoDB.Driver;
 using Scrypt;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -13,13 +11,11 @@ namespace Cases.Services
 {
     public class LoginService : ILoginService
     {
-        private readonly IMongoCRUD _db;
         private readonly IConfiguration _config;
         private readonly IUserHelper _userHelper;
 
-        public LoginService(IMongoCRUD db, IConfiguration config, IUserHelper userHelper)
+        public LoginService(IConfiguration config, IUserHelper userHelper)
         {
-            _db = db;
             _config = config;
             _userHelper = userHelper;
         }
@@ -51,14 +47,11 @@ namespace Cases.Services
         {
             ScryptEncoder encoder = new ScryptEncoder();
             var currentUser = await _userHelper.GetUserByUsername(userLogin.Username);
+            
+            bool isPasswordMatch = encoder.Compare(userLogin.Password, currentUser.Password);
 
-            if (currentUser != null)
-            {
-                bool isPasswordMatch = encoder.Compare(userLogin.Password, currentUser.Password);
-
-                if (isPasswordMatch)
-                    return currentUser;
-            }
+            if (isPasswordMatch)
+                return currentUser;
 
             return null;
         }
