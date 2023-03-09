@@ -94,9 +94,9 @@ const SymptomSurvey = () => {
                 <Checkbox label="Are you experiencing a loss of taste or smell?" value={q3} onChange={handleChangeq3}/>
                 <Checkbox label="Are you experiencing muscle weakness?" value={q4} onChange={handleChangeq4}/>
                 <Checkbox label="Are you experiencing loss of sleep?" value={q5} onChange={handleChangeq5}/>
-                <h3 id="onSuccessSurvey"></h3>
+                <p id="onSuccessSurvey"></p>
                 <input className="inputLogin" type='submit' value={"Submit survey"} onClick={() => {document.getElementById("onSuccessSurvey").innerHTML = "Your survey has been submitted, " +
-                 "if there are no toher messages you should assume you are ok and to report any new or worsening symptoms once they occur"}}/>
+                 "if there are no other messages you should assume you are ok and to report any new or worsening symptoms once they occur"}}/>
             </form>
         )
     }

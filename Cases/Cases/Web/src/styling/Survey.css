@@ -24,3 +24,9 @@ form .inputLogin {
 .TestPromtContainer {
     text-align: center;
 }
+
+.SurveyForm p {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}

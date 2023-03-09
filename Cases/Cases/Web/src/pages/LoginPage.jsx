@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/nhs-logo.jpeg'
@@ -59,7 +58,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
                 <br />
                 <div id='onSuccess'></div>
 
-                <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..."; }} />
+                <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..."; loginClick();}} />
                 <Link className='link' to={"/SignUp"}>Sign up</Link>
 
             </form>
