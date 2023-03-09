@@ -59,7 +59,7 @@ const LoginPage = ({ setIsLoggedIn, setToken }) => {
                 <br />
                 <div id='onSuccess'></div>
 
-                <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..."; }} />
+                <input className='inputLogin' type='submit' value={"Login"} onClick={() => { document.getElementById("onSuccess").innerHTML = "Loading..."; loginClick();}} />
                 <Link className='link' to={"/SignUp"}>Sign up</Link>
 
             </form>

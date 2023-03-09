@@ -30,6 +30,7 @@ const TestBooking = ({username, token}) => {
 
         let handleSubmit = async (e) =>{
             e.preventDefault();
+            
             try {
                 let res = await fetch("https://localhost:7166/BookingTest", {
                     method: "POST",
@@ -38,7 +39,7 @@ const TestBooking = ({username, token}) => {
                         "authorization": token
                     },
                     body: JSON.stringify({
-                        date: date,
+                        date: date.toLocaleDateString(),
                         time: time,
                         location: formData.location,
                         username: username
