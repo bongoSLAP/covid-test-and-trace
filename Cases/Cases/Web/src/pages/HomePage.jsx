@@ -57,12 +57,24 @@ const HomePage = ({isLoggedIn}) => {
         )
     }
 
+    function MessagingService() {
+
+        return(
+            <div className='VenueTrackingContainer'>
+                <h3>Live Chat</h3>
+                <p>If you have any concerns that require additional help, please use our live chat services to speak to a member of the team</p>
+                <Link to='/MessagingService'>Live chat now</Link>
+            </div>
+        )
+    }
+
     return(
         <div className='homePageContainer'>
             <NavBar />
             <SubHeading />
             <VenueTracking />
             <SelfIsolation />
+            <MessagingService />
         </div>
     )
 }

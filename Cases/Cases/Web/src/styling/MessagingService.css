@@ -1,0 +1,49 @@
+.MessageBox {
+    max-width: 50vw;
+    margin-top: 100px;
+    margin-left: 25vw;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.ownMessage {
+    display: flex;
+    justify-content: right;
+    margin-left: 25vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    max-width: 25vw;
+   
+    overflow: auto;
+    background-color: aqua;
+    text-align: right;
+}
+
+/* .ownMessage {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #000;
+    background-color: #e6e7ec;
+    max-width: 600px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    margin: 15px 0;
+    word-break: break-all;
+    direction: ltr;
+    
+    
+  
+} */
+
+
+
+
+.response {
+    font-size: 20px;
+    font-weight: 600;
+}

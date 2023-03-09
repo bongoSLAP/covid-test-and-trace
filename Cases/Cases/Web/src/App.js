@@ -8,6 +8,7 @@ import IsolationCountdown from './pages/IsolationCountdownPage';
 import TestBooking from './pages/TestBookingPage';
 import './styling/App.css';
 import SymptomSurvey from './pages/SymptomSurveyPage';
+import MessagingService from './pages/MessagingServicePage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,6 +22,7 @@ function App() {
     <Route path='/Countdown' element={<IsolationCountdown />} />
     <Route path='/BookTest' element={<TestBooking token={token}/>} />
     <Route path='/SymptomSurvey' element={<SymptomSurvey />} />
+    <Route path='/MessagingService' element={<MessagingService />} />
   </Routes>
 }
 
