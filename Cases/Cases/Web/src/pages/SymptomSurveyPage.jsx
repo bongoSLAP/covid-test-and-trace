@@ -73,13 +73,12 @@ const SymptomSurvey = () => {
         if (!endResult){
             return(
                 <div>
-                    <h2>It seems you are fine, if symptoms get worse then please book a Covid test</h2>
                 </div>
             )
         }
 
         return(
-            <div>
+            <div className="TestPromtContainer">
                 <h2>We strongly advise you book a Covid-19 test</h2>
                 <Link className="link" to='/BookTest'>Click here to book</Link>
             </div>
@@ -95,7 +94,9 @@ const SymptomSurvey = () => {
                 <Checkbox label="Are you experiencing a loss of taste or smell?" value={q3} onChange={handleChangeq3}/>
                 <Checkbox label="Are you experiencing muscle weakness?" value={q4} onChange={handleChangeq4}/>
                 <Checkbox label="Are you experiencing loss of sleep?" value={q5} onChange={handleChangeq5}/>
-                <input className="inputLogin" type='submit' value={"Submit survey"} />
+                <h3 id="onSuccessSurvey"></h3>
+                <input className="inputLogin" type='submit' value={"Submit survey"} onClick={() => {document.getElementById("onSuccessSurvey").innerHTML = "Your survey has been submitted, " +
+                 "if there are no toher messages you should assume you are ok and to report any new or worsening symptoms once they occur"}}/>
             </form>
         )
     }

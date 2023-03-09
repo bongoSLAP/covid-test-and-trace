@@ -18,7 +18,7 @@ function App() {
     <Route path='/Home' element={<HomePage isLoggedIn={isLoggedIn}/>} />
     <Route path='/CheckIn' element={<VenueCheckIn />} />
     <Route path='/Countdown' element={<IsolationCountdown />} />
-    <Route path='/BookTest' element={<TestBooking username={username} />} />
+    <Route path='/BookTest' element={<TestBooking />} />
     <Route path='/SymptomSurvey' element={<SymptomSurvey />} />
   </Routes>
 }
