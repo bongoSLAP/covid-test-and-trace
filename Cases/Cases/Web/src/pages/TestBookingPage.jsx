@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Calendar } from 'react-calendar';
 import TimePicker from 'react-time-picker';
-import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import NavBar from '../scenes/NavBar'
 import 'react-calendar/dist/Calendar.css';
@@ -28,12 +27,15 @@ const TestBooking = ({username}) => {
         })
     }
 
-    const {} = useForm() //HTTP Request
+
         let handleSubmit = async (e) =>{
             e.preventDefault();
             try {
                 let res = await fetch("https://localhost:7166/BookingTest", {
                     method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
                     body: JSON.stringify({
                         date: date,
                         time: time,
