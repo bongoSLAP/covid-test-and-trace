@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import NavBar from '../scenes/NavBar'
 
-const VenueCheckIn = () => {
+const VenueCheckIn = ({token}) => {
 
   
   function CheckInForm() {
@@ -15,7 +15,8 @@ const VenueCheckIn = () => {
           let res = await fetch("https://localhost:7166/CheckIn", {
               method: "POST",
               headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                "authorization": token
               },
               body: JSON.stringify({
                   VenueID: e.target.venueID.value

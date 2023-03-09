@@ -7,7 +7,7 @@ import 'react-calendar/dist/Calendar.css';
 import '../styling/Booking.css';
 
 
-const TestBooking = ({username}) => {
+const TestBooking = ({username, token}) => {
     
     const [date, onChange] = useState(new Date()); //Calendar Date
     const [time, onChangeTime] = useState('10:00'); //Booking Time
@@ -34,7 +34,8 @@ const TestBooking = ({username}) => {
                 let res = await fetch("https://localhost:7166/BookingTest", {
                     method: "POST",
                     headers: {
-                        "content-type": "application/json"
+                        "content-type": "application/json",
+                        "authorization": token
                     },
                     body: JSON.stringify({
                         date: date,

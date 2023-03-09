@@ -11,14 +11,15 @@ import SymptomSurvey from './pages/SymptomSurveyPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState(false);
 
   return <Routes>
-    <Route path='/' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+    <Route path='/' element={<LoginPage setIsLoggedIn={setIsLoggedIn} setToken={setToken}/>} />
     <Route path='/SignUp' element={<SignUpPage />} />
     <Route path='/Home' element={<HomePage isLoggedIn={isLoggedIn}/>} />
-    <Route path='/CheckIn' element={<VenueCheckIn />} />
+    <Route path='/CheckIn' element={<VenueCheckIn token={token}/>} />
     <Route path='/Countdown' element={<IsolationCountdown />} />
-    <Route path='/BookTest' element={<TestBooking />} />
+    <Route path='/BookTest' element={<TestBooking token={token}/>} />
     <Route path='/SymptomSurvey' element={<SymptomSurvey />} />
   </Routes>
 }
