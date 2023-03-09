@@ -11,10 +11,9 @@ import SymptomSurvey from './pages/SymptomSurveyPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState(false);
 
   return <Routes>
-    <Route path='/' element={<LoginPage setIsLoggedIn={setIsLoggedIn} setUsername={setUsername} username={username}/>} />
+    <Route path='/' element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
     <Route path='/SignUp' element={<SignUpPage />} />
     <Route path='/Home' element={<HomePage isLoggedIn={isLoggedIn}/>} />
     <Route path='/CheckIn' element={<VenueCheckIn />} />
