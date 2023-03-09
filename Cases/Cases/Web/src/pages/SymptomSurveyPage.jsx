@@ -46,7 +46,9 @@ const SymptomSurvey = () => {
         );
     };
 
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault();
+
         let result = 0;
         if (q1) {
             result += 1
@@ -88,7 +90,7 @@ const SymptomSurvey = () => {
     function SurveyForm() {
 
         return(
-            <form className="SurveyForm" onSubmit={handleSubmit}>
+            <form className="SurveyForm" onSubmit={(e) =>{handleSubmit(e)}}>
                 <Checkbox label="Are you experiencing breathing problems?" value={q1} onChange={handleChangeq1}/>
                 <Checkbox label="Are you experiencing fatigue?" value={q2} onChange={handleChangeq2}/>
                 <Checkbox label="Are you experiencing a loss of taste or smell?" value={q3} onChange={handleChangeq3}/>
