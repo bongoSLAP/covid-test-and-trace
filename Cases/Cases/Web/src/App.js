@@ -7,6 +7,7 @@ import VenueCheckIn from './pages/VenueCheckInPage';
 import IsolationCountdown from './pages/IsolationCountdownPage';
 import TestBooking from './pages/TestBookingPage';
 import './styling/App.css';
+import SymptomSurvey from './pages/SymptomSurveyPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,6 +19,7 @@ function App() {
     <Route path='/CheckIn' element={<VenueCheckIn />} />
     <Route path='/Countdown' element={<IsolationCountdown />} />
     <Route path='/BookTest' element={<TestBooking />} />
+    <Route path='/SymptomSurvey' element={<SymptomSurvey />} />
   </Routes>
 }
 

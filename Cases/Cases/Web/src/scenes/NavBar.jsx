@@ -65,7 +65,7 @@ const NavBar = () => {
                 <nav>
                     <Link className='linkNav' to='/Home'>Home</Link>
                     <Link className='linkNav' to='/BookTest'>Book Test</Link>
-                    <Link className='linkNav'>Symptom Survey</Link>
+                    <Link className='linkNav' to='/SymptomSurvey'>Symptom Survey</Link>
                     <Link className='linkNav'>Sign out</Link>
                     <button onClick={handlePostcode}>Post</button>
                     <button onClick={handleProximity}>Prox</button>

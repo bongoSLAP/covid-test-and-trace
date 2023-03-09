@@ -1,0 +1,26 @@
+.checkboxLabel input{
+    margin-left: 600px
+}
+
+.checkboxContainer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 60vw;
+}
+
+form label {
+    font-size: 20px;
+}
+
+form .inputLogin {
+    margin-top: 5vh;
+}
+
+.surveyPageContainer h3 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.TestPromtContainer {
+    text-align: center;
+}
