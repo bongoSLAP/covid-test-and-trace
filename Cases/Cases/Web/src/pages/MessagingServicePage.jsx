@@ -34,27 +34,27 @@ const MessagingService = () => {
         e.preventDefault();
 
         userMessage(e)
-        
+        document.getElementById("messageValue").value = "";
     }
 
     function LiveChat() {
 
         
         return(
-            <form onSubmit={(e) => handleMessage(e)}>
-                <div className="userChatbox">
-                <div className="aaaa"> <input className="inputText" type="text" id="messageValue" placeholder="Enter message" /> </div>
-                <div className="bbbb"> <input className="inputLogin" type="submit" value={"Send"} />   </div>
-                    
-                    
-                </div>
-            </form>
+                <form onSubmit={(e) => handleMessage(e)}>
+                    <div className="userChatbox">
+                    <input className="inputText" type="text" id="messageValue" placeholder="Enter message" />
+                    <input className="inputLogin" type="submit" value={"Send"} />
+                    </div>
+                </form>
         )
     }
 
     return(
         <div>
             <NavBar />
+            <br /> <br />
+            <h2>Doctor Live Chat</h2>
             <div id="MessageBox" className="MessageBox"></div>
             <LiveChat />
         </div>

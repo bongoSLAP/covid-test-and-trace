@@ -6,23 +6,6 @@
     overflow-y: auto;
 }
 
-/* .ownMessage {
-    display: flex;
-    justify-content: right;
-    margin-left: 25vw;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    color: white;
-    max-width: 25vw;
-    width: fit-content;
-    overflow: auto;
-    background-color: #005EB8;
-    border-radius: 5px;
-    text-align: right;
-} */
-
 .ownMessage {
     font-size: 18px;
     padding: 10px 20px;
@@ -58,22 +41,22 @@
     max-width: 25vw;
 }
 
+.userChatbox {
+    display: flex;
+    flex-direction: row;
+}
 
-/* .ownMessage {
-    font-size: 18px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    color: #000;
-    background-color: #e6e7ec;
-    max-width: 600px;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    position: relative;
-    margin: 15px 0;
-    word-break: break-all;
-    direction: ltr;
-    
-    
-  
-} */
+.userChatbox .inputLogin {
+    margin: 0;
+    width: 5vw;
+}
+
+.userChatbox .inputText {
+    width: 45vw;
+}
+
+form {
+    position: absolute;
+    top: 80vh;
+    right: 5%
+}
