@@ -50,10 +50,40 @@
 }
 
 .VenueTrackingContainer {
-    padding-top: 20vh;
-    padding-left: 10vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 25vw;
+}
+
+.VenueTrackingContainerGrey {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 25vw;
+    background-color: #f0f4f5;
 }
 
 .VenueTrackingContainer h3 {
-    font-size: 42px;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.VenueTrackingContainerGrey h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.arrow {
+    width: 30px;
+    height: 30px;
+}
+
+.homeLinkDiv {
+    margin-top: 20px;
+
+}
+
+.homeLink {
+    font-size: 30px;
+    margin-left: 30px;
+    color: #005EB8;
 }

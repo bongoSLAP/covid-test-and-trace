@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import NavBar from '../scenes/NavBar'
 import '../styling/Home.css'
 import banner from '../assets/nhs-banner.png'
+import arrow from '../assets/arrow-right-solid.svg'
 
 const HomePage = ({isLoggedIn}) => {
 
@@ -41,7 +42,10 @@ const HomePage = ({isLoggedIn}) => {
             <div className='VenueTrackingContainer'>
                 <h3>Venue Tracking</h3>
                 <p>If you're visiting a venue or business not owned by your household, you will need to check-in upon entry</p>
-                <Link to='/CheckIn'>Check-in here</Link>
+                <div className='homeLinkDiv'>
+                    <img src={arrow} alt="arrow" className='arrow' />   
+                    <Link to='/CheckIn' className='homeLink'>Check-in here</Link>
+                </div>
             </div>
         )
     }
@@ -49,10 +53,13 @@ const HomePage = ({isLoggedIn}) => {
     function SelfIsolation(){
 
         return(
-            <div className='VenueTrackingContainer'>
+            <div className='VenueTrackingContainerGrey'>
                 <h3>Self Isolation</h3>
                 <p>You must self isolate until ??? @ ???</p>
-                <Link to='/Countdown'>See more info</Link>
+                <div className='homeLinkDiv'>
+                    <img src={arrow} alt="arrow" className='arrow' />
+                    <Link to='/Countdown' className='homeLink'>See more info</Link>
+                </div>
             </div>
         )
     }
@@ -63,7 +70,10 @@ const HomePage = ({isLoggedIn}) => {
             <div className='VenueTrackingContainer'>
                 <h3>Live Chat</h3>
                 <p>If you have any concerns that require additional help, please use our live chat services to speak to a member of the team</p>
-                <Link to='/MessagingService'>Live chat now</Link>
+                <div className='homeLinkDiv'>
+                    <img src={arrow} alt="arrow" className='arrow' />
+                    <Link to='/MessagingService' className='homeLink'>Live chat now</Link>
+                </div>
             </div>
         )
     }

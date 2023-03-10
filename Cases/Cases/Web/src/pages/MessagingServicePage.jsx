@@ -41,7 +41,7 @@ const MessagingService = () => {
 
         
         return(
-                <form onSubmit={(e) => handleMessage(e)}>
+                <form onSubmit={(e) => handleMessage(e)} className="LiveChatForm">
                     <div className="userChatbox">
                     <input className="inputText" type="text" id="messageValue" placeholder="Enter message" />
                     <input className="inputLogin" type="submit" value={"Send"} />
