@@ -55,12 +55,6 @@
     width: 45vw;
 }
 
-form {
-    position: absolute;
-    top: 80vh;
-    right: 5%
-}
-
 .isTypingMessage {
     font-size: 18px;
     padding: 10px 20px;
@@ -77,4 +71,10 @@ form {
     direction: ltr;
     max-width: 25vw;
     margin-left: 25vw;
+}
+
+.LiveChatForm {
+    position: absolute;
+    top: 80vh;
+    right: 5%
 }
