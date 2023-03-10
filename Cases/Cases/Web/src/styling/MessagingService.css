@@ -1,12 +1,12 @@
 .MessageBox {
-    max-width: 50vw;
+    max-width: 70vw;
     margin-top: 100px;
     margin-left: 25vw;
     max-height: 50vh;
     overflow-y: auto;
 }
 
-.ownMessage {
+/* .ownMessage {
     display: flex;
     justify-content: right;
     margin-left: 25vw;
@@ -14,12 +14,50 @@
     margin-bottom: 10px;
     font-size: 20px;
     font-weight: 600;
+    color: white;
     max-width: 25vw;
-   
+    width: fit-content;
     overflow: auto;
-    background-color: aqua;
+    background-color: #005EB8;
+    border-radius: 5px;
     text-align: right;
+} */
+
+.ownMessage {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #FFF;
+    background-color: #005EB8;
+    max-width: 600px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    margin: 15px 0;
+    word-break: break-all;
+    direction: ltr;
+    max-width: 25vw;
+    margin-left: 40vw;
 }
+
+.response {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #000;
+    background-color: #eceded;
+    max-width: 600px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    margin: 15px 0;
+    word-break: break-all;
+    direction: ltr;
+    max-width: 25vw;
+}
+
 
 /* .ownMessage {
     font-size: 18px;
@@ -39,11 +77,3 @@
     
   
 } */
-
-
-
-
-.response {
-    font-size: 20px;
-    font-weight: 600;
-}
