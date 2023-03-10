@@ -60,3 +60,21 @@ form {
     top: 80vh;
     right: 5%
 }
+
+.isTypingMessage {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #000;
+    background-color: #eceded;
+    max-width: 600px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    margin: 15px 0;
+    word-break: break-all;
+    direction: ltr;
+    max-width: 25vw;
+    margin-left: 25vw;
+}

@@ -4,7 +4,7 @@ import '../styling/MessagingService.css'
 
 const MessagingService = () => {
 
-    function replyMessage(e) {
+    async function replyMessage(e) {
         const numResponses = 4;
         const reply = document.createElement("div");
         const responses = ["this worked", "Could you tell me what the problem is", "I see, let me look into it", "From what you've told me, you likely have COVID-19"];
@@ -15,8 +15,8 @@ const MessagingService = () => {
         reply.className = "response";
         
         if (childrenCount < numResponses) {
+            await typingMessage();
             document.getElementById("MessageBox").innerHTML += '<div class="response">' + responseText + '</div>'
-            console.log(childrenCount);
         }
     }
 
@@ -50,12 +50,40 @@ const MessagingService = () => {
         )
     }
 
+    function IsTyping () {
+        
+        return (
+            <div className="userTyping" id="userTyping"></div>
+        )
+    }
+
+    async function typingMessage() {
+
+        //"User is typing" to appear after user submits form, but before message appears
+        //Would setInterval to several seconds in order to prevent new message appearing
+        //During interval "user is typing" div appears
+        //When interval ends, div disappears, new message takes its place
+
+        let userTyping = document.getElementById("userTyping");
+
+        userTyping.innerHTML = '<div class="isTypingMessage id="isTypingMessage">' + "Doctor is Typing" + '</div>';
+        await sleep(2000);
+        userTyping.innerHTML = '<div class="isTypingMessage" id="isTypingMessage"></div>';
+        document.getElementById("isTypingMessage").remove();
+        //userTyping.style.backgroundColor = "White";
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     return(
         <div>
             <NavBar />
             <br /> <br />
             <h2>Doctor Live Chat</h2>
             <div id="MessageBox" className="MessageBox"></div>
+            <IsTyping />
             <LiveChat />
         </div>
     )
