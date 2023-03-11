@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Cases.Helpers;
+using Cases.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 var _policyName = "CorsPolicy";
@@ -25,6 +26,7 @@ builder.Services.AddCors(opt =>
     });
 });
 
+builder.Services.AddSignalR();
 builder.Services.AddControllers();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -47,10 +49,12 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseCors(_policyName);
-app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<NotificationHub>("/notificationhub");
+});
+app.UseCors(_policyName);
 app.MapControllers();
 
 app.Run();
