@@ -1,9 +1,11 @@
 using Cases.Helpers;
+using Cases.Hubs;
 using Cases.Interfaces;
 using Cases.Models;
 using Cases.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 
 namespace Cases.Controllers;
 
@@ -12,12 +14,14 @@ public class VenueController : Controller
     private readonly IVenueService _venueService;
     private readonly IUserHelper _userHelper;
     private readonly IMongoCRUD _db;
+    private readonly INotificationHub _hub;
     
-    public VenueController(IUserHelper userHelper, IVenueService venueService, IMongoCRUD db)
+    public VenueController(IUserHelper userHelper, IVenueService venueService, IMongoCRUD db, INotificationHub hub)
     {
         _userHelper = userHelper;
         _venueService = venueService;
         _db = db;
+        _hub = hub;
     }
     
     [Authorize]
@@ -73,4 +77,13 @@ public class VenueController : Controller
         return Ok();
     }
     */
+    
+    
+    [HttpGet("Venue/Notify")]
+    public IActionResult Test()
+    {
+        Console.WriteLine("Sending test message...");
+        _hub.SendNotification("deez");
+        return Ok();
+    }
 }

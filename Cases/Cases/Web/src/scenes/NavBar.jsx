@@ -2,9 +2,21 @@ import '../styling/NavBar.css'
 import logo from '../assets/nhs-logo.jpeg'
 import { Link } from "react-router-dom"
 import { useState } from 'react'
+import * as signalR from "@microsoft/signalr";
+
 const NavBar = () => {
     const [postcodeAlert, setPostcodeAlert] = useState(false);
     const [proximityAlert, setProximityAlert] = useState(false);
+
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("https://localhost:7166/notifications")
+        .build();
+
+    connection.on("ReceiveNotification", (message) => {
+        console.log('hello world: ', message)
+    });
+
+    connection.start();
 
     function Postcode() {
         if (!postcodeAlert) {

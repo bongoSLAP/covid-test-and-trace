@@ -1,11 +1,11 @@
 using Cases.Data;
 using Cases.Interfaces;
 using Cases.Services;
+using Cases.Hubs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Cases.Helpers;
-using Cases.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 var _policyName = "CorsPolicy";
@@ -15,7 +15,7 @@ builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ITestReportingService, TestReportingService>();
 builder.Services.AddScoped<IVenueService, VenueService>();
 builder.Services.AddScoped<IUserHelper, UserHelper>();
-builder.Services.AddScoped<INotificationHub, NotificationHub>();
+builder.Services.AddSingleton<INotificationHub, NotificationHub>();
 
 builder.Services.AddCors(opt =>
 {
@@ -24,7 +24,8 @@ builder.Services.AddCors(opt =>
         policyBuilder
             .WithOrigins("http://localhost:3000")
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials(); 
     });
 });
 
@@ -47,6 +48,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 var app = builder.Build();
+var hub = app.Services.GetService<INotificationHub>();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -56,7 +58,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapHub<NotificationHub>("/notifications");
+    endpoints.MapHub<NotificationHub>("/notifications").RequireCors(_policyName);
 });
 app.MapControllers();
 
