@@ -15,12 +15,14 @@ builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ITestReportingService, TestReportingService>();
 builder.Services.AddScoped<IVenueService, VenueService>();
 builder.Services.AddScoped<IUserHelper, UserHelper>();
+builder.Services.AddScoped<INotificationHub, NotificationHub>();
 
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy(name: _policyName, policyBuilder =>
     {
-        policyBuilder.AllowAnyOrigin()
+        policyBuilder
+            .WithOrigins("http://localhost:3000")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -49,13 +51,13 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseCors(_policyName);
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapHub<NotificationHub>("/notificationhub");
+    endpoints.MapHub<NotificationHub>("/notifications");
 });
-app.UseCors(_policyName);
 app.MapControllers();
 
 app.Run();
