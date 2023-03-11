@@ -78,12 +78,13 @@ public class VenueController : Controller
     }
     */
     
-    
+    /*
     [HttpGet("Venue/Notify")]
-    public IActionResult Test()
+    public IActionResult Foo()
     {
         Console.WriteLine("Sending test message...");
         _hub.SendNotification("deez");
         return Ok();
     }
+    */
 }
