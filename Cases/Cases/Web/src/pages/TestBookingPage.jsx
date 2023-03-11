@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { Calendar } from 'react-calendar';
 import TimePicker from 'react-time-picker';
-import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import NavBar from '../scenes/NavBar'
 import 'react-calendar/dist/Calendar.css';
 import '../styling/Booking.css';
 
 
-const TestBooking = ({username}) => {
+const TestBooking = ({username, token}) => {
     
     const [date, onChange] = useState(new Date()); //Calendar Date
     const [time, onChangeTime] = useState('10:00'); //Booking Time
@@ -28,14 +27,19 @@ const TestBooking = ({username}) => {
         })
     }
 
-    const {} = useForm() //HTTP Request
+
         let handleSubmit = async (e) =>{
             e.preventDefault();
+            
             try {
                 let res = await fetch("https://localhost:7166/BookingTest", {
                     method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                        "authorization": token
+                    },
                     body: JSON.stringify({
-                        date: date,
+                        date: date.toLocaleDateString(),
                         time: time,
                         location: formData.location,
                         username: username
