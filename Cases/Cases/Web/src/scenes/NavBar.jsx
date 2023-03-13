@@ -7,12 +7,14 @@ import * as signalR from "@microsoft/signalr";
 const NavBar = () => {
     const [postcodeAlert, setPostcodeAlert] = useState(false);
     const [proximityAlert, setProximityAlert] = useState(false);
+    const [notifications, setNotifications] = useState(false);
 
     const connection = new signalR.HubConnectionBuilder()
         .withUrl("https://localhost:7166/notifications")
         .build();
 
     connection.on("ReceiveNotification", (message) => {
+        setNotifications(message)
         console.log('hello world: ', message)
     });
 
@@ -47,6 +49,18 @@ const NavBar = () => {
         )
     }
     
+    function Notifications() {
+
+        if (!notifications) {
+            return (
+                <div></div>
+            )
+        }
+
+        return (
+            <div className='alert'>{notifications}</div>
+        )
+    }
     
 
     function handlePostcode() {
@@ -85,6 +99,7 @@ const NavBar = () => {
             </div>
             <Postcode />
             <Proximity />
+            <Notifications />
         </div>
     )
 }
