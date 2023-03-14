@@ -6,21 +6,28 @@
         public string Area { get; set; }
         public int InfectionCount { get; set; }
         public int Population { get; set; }
-        public List<string> UsersInPostcode { get; set; }
 
         public Postcode(
             string id, 
             string area, 
             int infectionCount, 
-            int population, 
-            List<string> usersInPostcode
+            int population
         )
         {
             Id = id;
             Area = area;
             InfectionCount = infectionCount;
             Population = population;
-            UsersInPostcode = usersInPostcode;
+        }
+        
+        public void IncrementInfectionCount()
+        {
+            this.InfectionCount += 1;
+        }
+        
+        public void DecrementInfectionCount()
+        {
+            this.InfectionCount -= 1;
         }
     }
 }

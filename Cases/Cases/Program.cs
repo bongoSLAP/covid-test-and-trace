@@ -11,10 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 var _policyName = "CorsPolicy";
 
 builder.Services.AddTransient<IMongoCRUD, MongoCRUD>();
+
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ITestReportingService, TestReportingService>();
 builder.Services.AddScoped<IVenueService, VenueService>();
+builder.Services.AddScoped<IPostcodeService, PostcodeService>();
 builder.Services.AddScoped<IUserHelper, UserHelper>();
+
 builder.Services.AddSingleton<INotificationHub, NotificationHub>();
 
 builder.Services.AddCors(opt =>
