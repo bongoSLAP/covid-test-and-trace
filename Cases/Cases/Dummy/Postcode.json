@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "f25c5818-9d24-43d1-b92c-c45e798d3f18",
+    "Area": "CR",
+    "InfectionCount": 12179,
+    "Population": 405982
+  },
+  {
+    "Id": "21d92eeb-69c2-4c8d-8847-ddb15233c01b",
+    "Area": "SE",
+    "InfectionCount": 19774,
+    "Population": 988702
+  },
+  {
+    "Id": "cc128f4d-54fc-4502-aea3-b3f928d401a8",
+    "Area": "NW",
+    "InfectionCount": 11028,
+    "Population": 551407
+  },
+  {
+    "Id": "7fcad978-75b6-417e-b81a-5f6b62baef0b",
+    "Area": "N",
+    "InfectionCount": 16963,
+    "Population": 848197
+  },
+  {
+    "Id": "069464aa-1805-4b00-b06e-5f600b5e0a8e",
+    "Area": "HR",
+    "InfectionCount": 1764,
+    "Population": 176493
+  },
+  {
+    "Id": "f7f306a0-16d1-49e1-8039-8663b7ea25cc",
+    "Area": "SE",
+    "InfectionCount": 29661,
+    "Population": 988702
+  },
+  {
+    "Id": "1ee7bb4f-cfa5-405b-8b3f-ccef593e4a1b",
+    "Area": "PL",
+    "InfectionCount": 2713,
+    "Population": 542719
+  },
+  {
+    "Id": "4ffae94c-9815-4152-9cb9-7c402665e7c8",
+    "Area": "IG",
+    "InfectionCount": 3356,
+    "Population": 335694
+  },
+  {
+    "Id": "6eb1c943-b1a2-42ac-ad4c-37849f0e72ce",
+    "Area": "EN",
+    "InfectionCount": 6888,
+    "Population": 344434
+  },
+  {
+    "Id": "9b6dde5b-d55e-4d8c-a484-2dfa4f104493",
+    "Area": "OX",
+    "InfectionCount": 6128,
+    "Population": 612827
+  },
+  {
+    "Id": "ee88cb08-8dea-4742-bf56-41c5a2d744df",
+    "Area": "S",
+    "InfectionCount": 40755,
+    "Population": 1358507
+  },
+  {
+    "Id": "3cb260ec-f89a-4f52-9a18-3cb903bb9da8",
+    "Area": "AL",
+    "InfectionCount": 2504,
+    "Population": 250427
+  }
+]

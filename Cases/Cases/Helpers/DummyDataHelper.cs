@@ -1,5 +1,6 @@
 using Cases.Interfaces;
 using Cases.Models.Entities;
+using Cases.Services;
 using Newtonsoft.Json;
 
 namespace Cases.Helpers;
@@ -23,5 +24,11 @@ public class DummyDataHelper
     {
         string json = File.ReadAllText(".\\Dummy\\Venue.json");
         return JsonConvert.DeserializeObject<List<Venue>>(json);
+    }
+    
+    public List<Postcode> GetDummyPostcodes()
+    {
+        string json = File.ReadAllText(".\\Dummy\\Postcode.json");
+        return JsonConvert.DeserializeObject<List<Postcode>>(json);
     }
 }
