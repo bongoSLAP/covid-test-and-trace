@@ -65,26 +65,4 @@ public class VenueController : Controller
             return BadRequest(ex.Message);
         }
     }
-
-    /*
-    [HttpGet("Venue/PopulateUsers")]
-    public IActionResult Foo()
-    {
-        var dummy = new DummyDataHelper(_db);
-        var venues = dummy.GetDummyVenues();
-
-        _db.InsertRange<Venue>("venues", venues);
-        return Ok();
-    }
-    */
-    
-    /*
-    [HttpGet("Venue/Notify")]
-    public IActionResult Foo()
-    {
-        Console.WriteLine("Sending test message...");
-        _hub.SendNotification("deez");
-        return Ok();
-    }
-    */
 }
